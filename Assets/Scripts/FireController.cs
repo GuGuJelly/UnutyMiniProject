@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class FireController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] ObjectPool bulletPool;
+    [SerializeField] Transform muzzlePoint;
+
+    [Range(1, 10)]
+    [SerializeField] float bulletSpeed;
+
+    private void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Fire();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Fire()
     {
-        
+        // 대여해서 파이어
+        PooledObject instance = bulletPool.GetPool(muzzlePoint.position, muzzlePoint.rotation);
+        BulletScripts bullet = instance.GetComponent<BulletScripts>();
+        bullet.SetSpeed(bulletSpeed);
     }
 }
