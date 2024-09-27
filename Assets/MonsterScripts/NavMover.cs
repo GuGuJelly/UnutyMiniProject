@@ -18,13 +18,14 @@ public class NavMover : MonoBehaviour
 
     private void Update()
     {
-        NavPatrollMonster();
+        NavChaserMonster();
     }
 
-    private void NavPatrollMonster()
+    private void NavChaserMonster()
     {
         if (boxCollider.CompareTag("Player"))
         {
+            // transform.LookAt(target);
             agent.isStopped = false;
             agent.destination = target.position;
 
