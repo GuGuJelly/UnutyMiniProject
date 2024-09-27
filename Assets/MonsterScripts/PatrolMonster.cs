@@ -16,7 +16,7 @@ public class PatrolMonster : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, points[current].position, speed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, points[current].position) < 0.1)
+        if (Vector3.Distance(transform.position, points[current].position) <= 1 )
         {
             IncreaseTargetInt();
         }

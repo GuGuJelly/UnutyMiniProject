@@ -177,10 +177,8 @@ GameObject:
   - component: {fileID: 2550916790591471271}
   - component: {fileID: 8685421842554081437}
   - component: {fileID: 2559943717586179049}
-  - component: {fileID: 3730980612693359204}
   - component: {fileID: 4569069137294277735}
   - component: {fileID: 9183025557073500035}
-  - component: {fileID: 6649564528957773599}
   m_Layer: 6
   m_Name: MonsterTank
   m_TagString: Monster
@@ -202,6 +200,7 @@ Transform:
   m_Children:
   - {fileID: 2339819411516636597}
   - {fileID: 6547839396940798597}
+  - {fileID: 7530666485633262326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,19 +233,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0361011, z: 1.1375101}
   m_Center: {x: 0, y: -0.01805015, z: -0.06875454}
---- !u!65 &3730980612693359204
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895108548716979229}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 20, y: 1, z: 20}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4569069137294277735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,24 +268,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6649564528957773599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895108548716979229}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44cc92cc09092254a8a3edf879103d22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaserSpeed: 0
-  normalSpeed: 0
-  currentSpeed: 0
-  directionChangeInterval: 0
-  followPlayer: 0
-  boxCollider: {fileID: 0}
 --- !u!1 &4866770212392602159
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +438,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6143824172728283261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7530666485633262326}
+  - component: {fileID: 2980732035211583734}
+  m_Layer: 6
+  m_Name: FindPlayerSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7530666485633262326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143824172728283261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2550916790591471271}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2980732035211583734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143824172728283261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 1, z: 20}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6443476031834550408
 GameObject:
   m_ObjectHideFlags: 0
