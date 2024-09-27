@@ -13,15 +13,13 @@ public class MonsterMover : MonoBehaviour
 
     private void Update()
     {
-        MonsterMove();
+        // MonsterMove();
     }
 
 
     private void MonsterMove()
     {
-        
-        //transform.LookAt(player);
-        //transform.Translate(Vector3.forward * monsterSpeed * Time.deltaTime, Space.Self); 
+        transform.position += new Vector3(0.1f,0,0)*Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
