@@ -12,14 +12,22 @@ public class PlayerBullet : MonoBehaviour
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Monster"))
         {
             gameObject.SetActive(false);
         }
-
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Monster"))
+    //    {
+    //        gameObject.SetActive(false);
+    //    }
+    //
+    //}
 
     public void SetSpeed(float speed)
     {

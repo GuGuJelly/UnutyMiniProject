@@ -22,7 +22,7 @@ public class FireController : MonoBehaviour
     {
         // 대여해서 파이어
         PooledObject instance = bulletPool.GetPool(muzzlePoint.position, muzzlePoint.rotation);
-        BulletScripts bullet = instance.GetComponent<BulletScripts>();
+        PlayerBullet bullet = instance.GetComponent<PlayerBullet>();
         bullet.SetSpeed(bulletSpeed);
     }
 }

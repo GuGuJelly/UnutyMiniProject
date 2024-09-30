@@ -11,15 +11,24 @@ public class MonsterStatus : MonoBehaviour
         monsterHP = 3;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("PlayerBullet"))
+        if (collision.gameObject.CompareTag("PlayerBullet"))
         {
             MonsterTakedDamage();
             MonsterDead();
         }
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("PlayerBullet"))
+    //    {
+    //        MonsterTakedDamage();
+    //        MonsterDead();
+    //    }
+    //}
+    
     private void MonsterTakedDamage()
     {
         monsterHP--;
