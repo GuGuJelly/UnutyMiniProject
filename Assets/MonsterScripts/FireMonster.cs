@@ -47,7 +47,26 @@ public class FireMonster : MonoBehaviour
                 fireMonsterRoutine = null;
             }
         }
+        else if(hitInfo.collider.gameObject.tag != "Player")
+        {
+            if (fireMonsterRoutine != null)
+            {
+                StopCoroutine(fireMonsterRoutine);
+                fireMonsterRoutine = null;
+            }
+        }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        if (fireMonsterRoutine != null)
+    //        {
+    //            StopCoroutine(fireMonsterRoutine);
+    //        }
+    //    }
+    //}
 
     //private void StopMonsterFire()
     //{
