@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FireMonster : MonoBehaviour
 {
+    [SerializeField] PlayerStatus playerStatus;
+
     [SerializeField] GameObject monsterBulletPrefab;
     [SerializeField] GameObject playerObject;
     [SerializeField] Transform monsterMuzzlePoint;
@@ -15,40 +17,61 @@ public class FireMonster : MonoBehaviour
     
     private Coroutine fireMonsterRoutine;
 
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(FireRoutine());
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
         
     }
+    private void Update()
+    {
+        if (playerStatus.playerHp > 0)
+        {
+            if (fireMonsterRoutine == null)
+            {
+                fireMonsterRoutine = StartCoroutine(FireRoutine());
+            }
+        }
+        if (playerStatus.playerHp <= 0)
+        {
+            if (fireMonsterRoutine != null)
+            {
+                StopCoroutine(fireMonsterRoutine);
+                fireMonsterRoutine = null;
+            }
+        }
+    }
+
+    //private void StopMonsterFire()
+    //{
+    //    if (playerStatus.playerHp <= 0)
+    //    {
+    //        StopCoroutine(fireMonsterRoutine);
+    //    }
+    //    
+    //}
 
     private IEnumerator FireRoutine()
     {
         while (true)
         {
-            //yield return null;
-            //Physics.Raycast(monsterMuzzlePoint.position, monsterMuzzlePoint.forward, out RaycastHit hitInfo, fireRange);
-            //yield return null;
-            //if (hitInfo.collider.tag == "Player" && hitInfo.collider != null)
+            yield return null;
+            Instantiate(monsterBulletPrefab, monsterMuzzlePoint.position, monsterMuzzlePoint.rotation);
+            yield return null;
+            monsterBulletQuantity++;
+            yield return new WaitForSeconds(repeatTime);
             
-                //yield return null;
-                //for (int i = 0; i < 7; i++ )
-                //{
-                    //yield return null;
-                    Instantiate(monsterBulletPrefab, monsterMuzzlePoint.position, monsterMuzzlePoint.rotation);
-                    yield return null;
-                    monsterBulletQuantity++;
-                    yield return new WaitForSeconds(repeatTime);
-                //}
             if(monsterBulletQuantity > 7)
             {
+                yield return null;
                 monsterBulletQuantity = 0;
                 yield return new WaitForSeconds(reLoadTime);
             }
-                
+            
         }
     }
 }
