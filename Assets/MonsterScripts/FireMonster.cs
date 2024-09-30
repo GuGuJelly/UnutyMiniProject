@@ -29,7 +29,10 @@ public class FireMonster : MonoBehaviour
     }
     private void Update()
     {
-        if (playerStatus.playerHp > 0)
+        Physics.Raycast(monsterMuzzlePoint.position, monsterMuzzlePoint.forward, out RaycastHit hitInfo, fireRange);
+        Debug.DrawRay(monsterMuzzlePoint.position, monsterMuzzlePoint.forward * fireRange, Color.red);
+
+        if (hitInfo.collider.gameObject.CompareTag("Player")&&playerStatus.playerHp > 0)
         {
             if (fireMonsterRoutine == null)
             {
@@ -64,8 +67,8 @@ public class FireMonster : MonoBehaviour
             yield return null;
             monsterBulletQuantity++;
             yield return new WaitForSeconds(repeatTime);
-            
-            if(monsterBulletQuantity > 7)
+
+            if (monsterBulletQuantity > 7)
             {
                 yield return null;
                 monsterBulletQuantity = 0;

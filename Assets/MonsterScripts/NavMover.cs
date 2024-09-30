@@ -67,6 +67,4 @@ public class NavMover : MonoBehaviour
         }
         agent.isStopped = false;
     }
-
-    
 }

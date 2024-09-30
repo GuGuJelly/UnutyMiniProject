@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScripts : MonoBehaviour
+public class PlayerBullet : MonoBehaviour
 {
+   
     [SerializeField] float speed;
 
     private void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
-        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        
+
     }
 
     public void SetSpeed(float speed)
@@ -26,3 +26,5 @@ public class BulletScripts : MonoBehaviour
         this.speed = speed;
     }
 }
+
+

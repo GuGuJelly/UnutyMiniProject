@@ -9,7 +9,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void Awake()
     {
-        playerHp = 3;
+        playerHp = 10;
     }
 
     private void Update()
@@ -22,10 +22,7 @@ public class PlayerStatus : MonoBehaviour
         if (other.CompareTag("MonsterBullet"))
         {
             PlayerTakenDamage();
-            if (playerHp <= 0)
-            {
-                PlayerDead();
-            }
+            PlayerDead();
 
         }
         
@@ -38,6 +35,10 @@ public class PlayerStatus : MonoBehaviour
 
     private void PlayerDead()
     {
-        Destroy(gameObject);
+        if (playerHp <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }
