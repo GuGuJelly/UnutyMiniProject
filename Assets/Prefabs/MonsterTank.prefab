@@ -175,10 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2550916790591471271}
-  - component: {fileID: 8685421842554081437}
   - component: {fileID: 2559943717586179049}
-  - component: {fileID: 4569069137294277735}
   - component: {fileID: 8115854219327363017}
+  - component: {fileID: 6302975639700589813}
   - component: {fileID: 9183025557073500035}
   - component: {fileID: 3980027023928792949}
   m_Layer: 6
@@ -206,22 +205,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &8685421842554081437
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895108548716979229}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &2559943717586179049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -235,20 +218,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0361011, z: 1.1375101}
   m_Center: {x: 0, y: -0.01805015, z: -0.06875454}
---- !u!114 &4569069137294277735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895108548716979229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad622b091daf2746992e4bacd921a8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: []
-  speed: 0
 --- !u!114 &8115854219327363017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +230,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfb580f6da17214f98384ad6dd02451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  target: {fileID: 0}
+  returnPoint: {fileID: 0}
+--- !u!114 &6302975639700589813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895108548716979229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f367abb9e2ceb948b10dcaef97686e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterBulletPrefab: {fileID: 0}
+  playerObject: {fileID: 0}
+  monsterMuzzlePoint: {fileID: 4038943546293691699}
+  monsterBulletQuantity: 0
+  fireRange: 0
+  repeatTime: 0
+  reLoadTime: 0
 --- !u!95 &9183025557073500035
 Animator:
   serializedVersion: 5
@@ -613,6 +604,7 @@ GameObject:
   - component: {fileID: 6547839396940798597}
   - component: {fileID: 395664576341453993}
   - component: {fileID: 8788244692858831726}
+  - component: {fileID: 941978738351729893}
   m_Layer: 6
   m_Name: SmallTank_Tower
   m_TagString: Untagged
@@ -686,6 +678,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &941978738351729893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996074018348459638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f367abb9e2ceb948b10dcaef97686e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterBulletPrefab: {fileID: 0}
+  playerObject: {fileID: 0}
+  monsterMuzzlePoint: {fileID: 0}
+  monsterBulletQuantity: 0
+  fireRange: 0
+  repeatTime: 0
+  reLoadTime: 0
 --- !u!1 &8418996942492496222
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038943546293691699}
   m_Layer: 6
-  m_Name: MuzzlePoint
+  m_Name: MonsterMuzzlePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

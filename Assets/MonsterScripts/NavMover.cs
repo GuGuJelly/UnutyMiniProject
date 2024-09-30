@@ -47,7 +47,7 @@ public class NavMover : MonoBehaviour
     {
         // 탱크의 이동속도가 너무 빨라서 가속이 못따라가면 
         // 탱크가 목적지점까지 이동했을때 지나쳐가버려서
-        // 갈팡질팡하기 때문에 가속을 충분히 높게 해주면 해결된다
+        // 갈팡질팡하기 때문에 agent의 가속을 충분히 높게 해주면 해결된다
         if (other.gameObject.CompareTag("Player")) 
         {
             transform.LookAt(target);
