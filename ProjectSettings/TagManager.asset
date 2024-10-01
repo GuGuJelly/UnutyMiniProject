@@ -8,6 +8,8 @@ TagManager:
   - MonsterBullet
   - PlayerBullet
   - MiniMapCamera
+  - Icon
+  - Effect
   layers:
   - Default
   - TransparentFX

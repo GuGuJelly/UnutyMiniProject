@@ -49,7 +49,9 @@ public class NavMover : MonoBehaviour
             {
                 StopCoroutine(PatollMonsterRoutine);
             }
+
             transform.LookAt(target);
+            agent.speed = 5;
             agent.stoppingDistance = 8;
             agent.isStopped = false;
             agent.destination = target.position;
@@ -69,6 +71,7 @@ public class NavMover : MonoBehaviour
             }
             
             transform.LookAt(target);
+            agent.speed = 5;
             agent.stoppingDistance = 8;
             agent.isStopped = false;
             agent.destination = target.position;
@@ -79,6 +82,7 @@ public class NavMover : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            agent.speed = 3;
             transform.LookAt(returnPoint);
             agent.stoppingDistance = 0;
             agent.destination = returnPoint.position;
@@ -105,7 +109,6 @@ public class NavMover : MonoBehaviour
             yield return new WaitForSeconds(10f);
             agent.destination = patrollPoint1.position;
             yield return new WaitForSeconds(10f);
-
         }
     }
 }
