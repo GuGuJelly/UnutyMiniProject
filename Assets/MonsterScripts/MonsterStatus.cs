@@ -5,10 +5,12 @@ using UnityEngine;
 public class MonsterStatus : MonoBehaviour
 {
     [SerializeField] public int monsterHP;
+    [SerializeField] public int monsterCurHP;
 
     private void Awake()
     {
         monsterHP = 3;
+        monsterCurHP = monsterHP;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -19,24 +21,15 @@ public class MonsterStatus : MonoBehaviour
             MonsterDead();
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("PlayerBullet"))
-    //    {
-    //        MonsterTakedDamage();
-    //        MonsterDead();
-    //    }
-    //}
     
     private void MonsterTakedDamage()
     {
-        monsterHP--;
+        monsterCurHP--;
     }
 
     private void MonsterDead()
     {
-        if (monsterHP <= 0)
+        if (monsterCurHP <= 0)
         {
             Destroy(gameObject);
         }

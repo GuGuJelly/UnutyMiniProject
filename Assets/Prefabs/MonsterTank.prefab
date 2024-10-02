@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterDamagedEffect: {fileID: 0}
+  takenDamageSound: {fileID: 0}
 --- !u!95 &9183025557073500035
 Animator:
   serializedVersion: 5
