@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,16 +8,17 @@ public class MonsterHpSlider : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] Slider monsterHP_Slider;
+    [SerializeField] TextMeshProUGUI text;
     [SerializeField] MonsterStatus monsterStatus;
     [SerializeField] Transform playerPosition;
 
     [SerializeField] float maxDistance;
 
-    private void Awake()
+    private void Start()
     {
-        canvas.enabled = false;
+        canvas.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
         monsterHP_Slider.value = monsterStatus.monsterHP;
-       
     }
 
     private void Update()
@@ -25,11 +27,13 @@ public class MonsterHpSlider : MonoBehaviour
         Debug.DrawRay(playerPosition.position, playerPosition.forward * maxDistance, Color.red);
         if (HitInfoHP.collider.gameObject.CompareTag("Monster"))
         {
-            canvas.enabled = true;
+            text.gameObject.SetActive(true);
+            text.text = HitInfoHP.collider.gameObject.name;
+            canvas.gameObject.SetActive(true);
             monsterHP_Slider.value = monsterStatus.monsterCurHP;
         }
         else
-            canvas.enabled = false;
+            canvas.gameObject.SetActive(false);
     }
 
 }
